@@ -1,0 +1,46 @@
+﻿
+@model Tavi.BoMayToChuc.Models.NhomNguoiDung
+@using Tavi.Core.HtmlEx;
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.NhomNguoiDungId)
+    @Html.HiddenFor(m => m.CanBoTaoId)
+    @Html.HiddenFor(m => m.NgayTao)
+    @Html.HiddenFor(m => m.CoQuanId)
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Thông tin nhóm người dùng</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Đóng">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body" style="max-height:500px; overflow-y: auto">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="form-group">
+                        @Html.Label("Cơ quan: ")
+                        <span class="required"> *</span>
+                        <div id="CoQuan" data-coquanId="@Model.CoQuanId"></div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Tên nhóm: ")
+                        <span class="required"> *</span>
+                        @Html.TextBox("TenNhomNguoiDung", null, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Mô tả: ")
+                        @Html.TextArea("Mota", null, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.CheckBoxEx("ConHoatDong", "Còn hoạt động", Model.ConHoatDong.HasValue ? Model.ConHoatDong.Value : true)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-sm btn-flat btn-default cmd-close" data-dismiss="modal">Đóng</button>
+            <button type="button" class="btn btn-sm btn-flat btn-primary cmd-save">Ghi lại</button>
+        </div>
+    </div>
+}

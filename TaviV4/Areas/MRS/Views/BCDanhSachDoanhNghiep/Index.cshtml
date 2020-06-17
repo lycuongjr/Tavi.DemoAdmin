@@ -1,0 +1,109 @@
+﻿<style>
+    .modal-content {
+        text-align: center;
+    }
+
+    .modal-dialog {
+        min-width: 1200px;
+        height: auto;
+    }
+</style>
+@Html.Hidden("hdurl", "/MRS/BCDanhSachDoanhNghiep/Index")
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-primary card-outline">
+            <div class="card-header text-primary">
+                <span>
+                    BÁO CÁO TỔNG HỢP DOANH NGHIỆP KHAI THÁC KHOÁNG SẢN
+                </span>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Thời gian từ ngày</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Đến ngày</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Loại khoáng sản</label>
+                        <select class="js-example-basic-single" name="state">
+                            <option>Chọn được nhiều</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Thuộc huyện</label>
+                        <select class="js-example-basic-single" name="state">
+                            <option>TP Bắc Giang</option>
+                            <option>Huyện Lạng Giang</option>
+                            <option>Huyện Yên Dũng</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="btn col-md-12 text-center">
+                    <a class="btn btn-primary" href="#" role="button" data-toggle="modal" data-target="#exampleModal">Báo cáo</a>&nbsp;&nbsp;
+                    <a class="btn btn-outline-primary" href="#" role="button">Xóa điều kiện lọc</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="col-md-12 text-center">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <a class="btn btn-outline-primary" href="#" role="button">Xuất ra dữ liệu Exel</a>
+                        </div>
+                        <div class="col-md-3">
+                            <a class="btn btn-outline-primary" href="#" role="button">Xuất ra dữ liệu Word</a>
+                        </div>
+                        <div class="col-md-3">
+                            <a class="btn btn-outline-primary" href="#" role="button">Xuất ra dữ liệu PDF</a>
+                        </div>
+                        <div class="col-md-2">
+                            <a class="btn btn-outline-primary" href="#" role="button">In dữ liệu</a>
+                        </div>
+                        <div class="col-md-1">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div id="list-doanhnghiep">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    $(document).ready(function () {
+        $('.js-example-basic-single').select2();
+    });
+
+    $.ajax({
+        url: "/MRS/BCDanhSachDoanhNghiep/_BCDanhSachDN", // link to action get data
+        type: "GET",
+        dataType: "html", // type of data is html from partial view
+        success: function (data) {
+            // run when get data success
+            console.log(data);
+            // set html for div
+            $("#list-doanhnghiep").html(data);
+        },
+        error: function (data) {
+            console.log("Has error");
+        }
+    })
+</script>

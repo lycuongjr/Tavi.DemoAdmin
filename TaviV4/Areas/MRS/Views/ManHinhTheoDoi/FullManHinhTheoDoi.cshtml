@@ -1,0 +1,257 @@
+﻿<style>
+    .popover {
+        max-width: 800px;
+    }
+</style>
+<div id="fulltheodoi">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <div class="card-title text-primary">
+                        BẢNG THEO DÕI TÌNH HÌNH KẾT NỐI - CẢNH BÁO DOANH NGHIỆP KHAI THÁC KHOÁNG SẢN
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class="table table-bordered table-head-fixed">
+                        <thead>
+                            <tr>
+                                <th style="width:5%;" class="bg-info text-center">STT</th>
+                                <th style="width:40%" class="bg-info">TÊN DOANH NGHIỆP</th>
+                                <th style="width:10%" class="bg-info">TRẠNG THÁI KẾT NỐI</th>
+                                <th style="width:8%" class="bg-info">THIẾT BỊ</th>
+                                <th style="width:28%" class="bg-info">CẢNH CÁO</th>
+                                <th style="width:8%" class="bg-info">Tổng xe</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><a href="/mrs/manhinhtheodoi/chitietdoanhnghiep" class="text-dark">Tổng Công ty Đông Bắc</a></td>
+                                <td class="text-center"><i class="far fa-dot-circle text-primary text-lg"></i></td>
+                                <td class="text-center">
+                                    <a href="#">
+                                        <i class="far fa-square text-lg text-dark" data-toggle="popover"></i>
+                                    </a>
+                                </td>
+                                <td class="text-center">
+                                    <a href="#">
+                                        <i class="fas fa-car text-lg text-dark" data-toggle="popover-1" data-code="CHUA_KHAI_BAO"></i>
+                                    </a>
+                                    &nbsp;&nbsp;&nbsp;<a href="#">
+                                        <i class="fas fa-exclamation-triangle text-lg text-dark" data-toggle="popover-1" data-code="KHONG_NHAN_DANG"></i>
+                                    </a>
+                                    &nbsp;&nbsp;&nbsp;<a href="#">
+                                        <i class="far fa-map text-lg text-dark" data-toggle="popover-1" data-code="NGOAI_PHAM_VI"></i>
+                                    </a>&nbsp;&nbsp;&nbsp;
+                                    <a href="#">
+                                        <i class="fas fa-exchange-alt text-lg text-dark" data-toggle="popover-1" data-code="THIEU_DU_LIEU"></i>
+                                    </a>
+                                </td>
+                                <td class="text-center">100</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><a href="#" class="text-dark">Tổng Công ty cổ phần khoáng sản Bắc Giang</a></td>
+                                <td class="text-center"><i class="far fa-dot-circle text-primary text-lg"></i></td>
+                                <td class="text-center"><i class="far fa-square text-lg"></i></td>
+                                <td></td>
+                                <td class="text-center">50</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><a href="#" class="text-dark">Tổng Công ty cổ phần thương mại Bắc Giang</a></td>
+                                <td class="text-center"><i class="far fa-dot-circle text-primary text-lg"></i></td>
+                                <td class="text-center"><i class="far fa-square text-lg"></i></td>
+                                <td></td>
+                                <td class="text-center">10</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td><a href="#" class="text-dark">Tổng Công ty cổ phần tập đoàn khoáng sản Tam Cường</a></td>
+                                <td class="text-center"><i class="far fa-dot-circle text-danger text-lg"></i></td>
+                                <td class="text-center"><i class="far fa-square text-lg"></i></td>
+                                <td></td>
+                                <td class="text-center">8</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card-footer">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <span class="text-bold"><i class="far fa-dot-circle text-primary text-lg"></i>&nbsp;&nbsp;Có kết nối</span><br />
+                            <span class="text-bold"><i class="far fa-dot-circle text-danger text-lg"></i>&nbsp;&nbsp;Mất kết nối</span>
+                        </div>
+                        <div class="col-md-4">
+                            <span class="text-bold"><i class="fas fa-car text-primary text-lg"></i>&nbsp;&nbsp;Xe chưa khai báo</span><br />
+                            <span class="text-bold"><i class="fas fa-exclamation-triangle text-primary text-lg"></i>&nbsp;&nbsp;Không nhận dạng được biển số</span>
+                        </div>
+                        <div class="col-md-4">
+                            <span class="text-bold"><i class="fas fa-exchange-alt text-primary text-lg"></i>&nbsp;&nbsp;Xe ra vào nhưng không có dữ liệu</span><br />
+                            <span class="text-bold"><i class="far fa-map text-primary text-lg"></i>&nbsp;&nbsp;Di chuyển ngoài phạm vi</span>
+                        </div>
+                        <div class="col-md-2">
+                            <a href="/MRS/ManHinhTheoDoi/Index"><i class="fas fa-compress-arrows-alt float-right text-secondary text-lg"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="table-1" hidden>
+    <table class="table table-bordered table-head-fixed">
+        <thead>
+            <tr>
+                <th style="width:5%;" class="bg-info text-center">STT</th>
+                <th style="width:25%" class="bg-info">Tên thiết bị</th>
+                <th style="width:40%" class="bg-info">Vị trí</th>
+                <th style="width:30%" class="bg-info">Mô tả lỗi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>
+                    <div class="dropdown show">
+                        <a href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Camera01</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="/MRS/ManHinhTheoDoi/GuiThongBao">Gửi thông báo</a>
+                            <a class="dropdown-item" href="/MRS/ManHinhTheoDoi/TaoBienBanXuPhat">Tạo biên bản xử lý</a>
+                        </div>
+                    </div>
+                </td>
+                <td>Tại khu vực đường vào 01</td>
+                <td>Mất kết nối</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="table-2" hidden>
+    <table class="table table-bordered table-head-fixed">
+        <thead>
+            <tr>
+                <th style="width:5%;">STT</th>
+                <th style="width:45%">NỘI DUNG</th>
+                <th style="width:30%">HÌNH ẢNH</th>
+                <th style="width:20%">THỜI GIAN</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>
+                    <div class="dropdown show">
+                        <a href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Không nhận dạng</a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="/MRS/ManHinhTheoDoi/GuiThongBao">Gửi thông báo</a>
+                            <a class="dropdown-item" href="/MRS/ManHinhTheoDoi/TaoBienBanXuPhat">Tạo biên bản xử lý</a>
+                            <a class="dropdown-item" href="#">Đóng thông báo</a>
+                        </div>
+                    </div>
+                </td>
+                <td></td>
+                <td>20/11/2019 8h30</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+    const options = {
+        title: '<strong>Danh sách thiết bị mất kết nối</strong> <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button >',
+        html: true,
+        content: `<div id='listDevice' >
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th style="width:5%;" class="bg-info text-center">STT</th>
+                                <th style="width:25%" class="bg-info">Tên thiết bị</th>
+                                <th style="width:40%" class="bg-info">Vị trí</th>
+                                <th style="width:30%" class="bg-info">Mô tả lỗi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan='4'>Chưa có dữ liệu</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>`,
+        sanitize: false,
+    }
+    $(function () {
+        $('[data-toggle="popover"]').popover(options)
+    })
+
+    $('[data-toggle="popover"]').on('show.bs.popover', function () {
+        $.ajax({
+            url: "/MRS/ManHinhTheoDoi/_DSThietBiMKN",
+            type: "GET",
+            dataType: "html",
+            success: function (data) {
+                $("#listDevice").html(data);
+            },
+            error: function () {
+
+            }
+        })
+    })
+
+
+
+    //Table 2
+    const options1 = {
+        title: '<strong>DANH SÁCH NỘI DUNG CẢNH BÁO<strong> <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button >',
+        html: true,
+        content: `<div class='listDevice1'>
+                    <table class="table table-bordered">
+                        <thead>
+                          <tr>
+                            <th style="width:5%;">STT</th>
+                            <th style="width:45%">NỘI DUNG</th>
+                            <th style="width:30%">HÌNH ẢNH</th>
+                            <th style="width:20%">THỜI GIAN</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan='4'>Chưa có dữ liệu</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>`,
+        sanitize: false,
+    }
+    $(function () {
+        $('[data-toggle="popover-1"]').popover(options1)
+    })
+
+    $('[data-toggle="popover-1"]').on('show.bs.popover', function () {
+        $this = $(this);
+        var code = $this.data('code');
+
+        $.ajax({
+            url: "/MRS/ManHinhTheoDoi/_DSNoiDungCanhBao",
+            data: { type: code },
+            type: "GET",
+            dataType: "html",
+            success: function (data) {
+                var popover = $this.data("bs.popover").tip;
+                $(popover).find(".listDevice1").html(data);
+            },
+            error: function () {
+
+            }
+        })
+    })
+
+</script>

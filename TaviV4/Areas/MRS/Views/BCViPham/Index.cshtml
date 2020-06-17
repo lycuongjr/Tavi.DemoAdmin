@@ -1,0 +1,76 @@
+﻿@Html.Hidden("hdurl", "/MRS/BCViPham/Index")
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-primary card-outline">
+            <div class="card-header text-primary">
+                <span>
+                    BÁO CÁO TỔNG HỢP VI PHẠM
+                </span>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Thời gian từ ngày</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Đến ngày</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Công ty</label>
+                        <select class="js-example-basic-single" name="state">
+                            <option>Công ty ABC</option>
+                            <option>Công ty XYZ</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Loại vi phạm</label>
+                        <select class="js-example-basic-single" name="state">
+                            <option>Tất cả</option>
+                            <option>Xe chưa khai báo</option>
+                            <option>Xe di chuyển ngoài vùng quy định</option>
+                            <option>Quá trọng tải</option>
+                            <option>Không nhận dạng được biển</option>
+                            <option>Mất kết nối</option>
+                            <option>Mất kết nối - thiết bị</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="btn col-md-12 text-center">
+                    <a id="btn1" class="btn btn-primary" href="#" role="button" data-toggle="modal" data-target="#exampleModal">Báo cáo</a>&nbsp;&nbsp;
+                    <a class="btn btn-outline-primary" href="#" role="button">Xóa điều kiện lọc</a>
+                </div>
+                <div id="list-vipham" style="display:none">
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    //$.ajax({
+    //    url: "/MRS/BCViPham/_BCViPham", // link to action get data
+    //    type: "GET",
+    //    dataType: "html", // type of data is html from partial view
+    //    success: function (data) {
+    //        // run when get data success
+    //        console.log(data);
+    //        // set html for div
+    //        $("#list-vipham").html(data);
+    //    },
+    //    error: function (data) {
+    //        console.log("Has error");
+    //    }
+    //})
+    $("#btn1").click(function () {
+        $("#list-vipham").load("/MRS/BCViPham/_BCViPham").toggle();
+    });
+    $(document).ready(function () {
+        $('.js-example-basic-single').select2();
+    });
+</script>

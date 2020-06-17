@@ -1,0 +1,60 @@
+﻿@Html.Hidden("hdurl", "/MRS/NhanThongBao/Index")
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-primary card-outline">
+            <div class="card-header">
+                <span>NHẬN BÁO CÁO TỪ DOANH NGHIỆP</span>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Từ ngày</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="exampleInputEmail1">Đến ngày</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <label for="exampleInputEmail1">Doanh nghiệp</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                    </div>
+                </div>
+                <div class="row pt-4">
+                    <div class="col-md-10">
+                        <div class="form-group row">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">Tiêu đề</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <a class="btn btn-primary" href="#" role="button"><i class="fa fa-search-plus"></i>Tìm kiếm</a>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div id="list-thongbao">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $.ajax({
+        url: "/MRS/NhanThongBao/_DSThongBao",
+        type: "GET",
+        dataType: "html",
+        success: function (data) {
+            console.log(data);
+            $("#list-thongbao").html(data);
+        },
+        error: function (data) {
+            console.log("Has error");
+        }
+    })
+</script>

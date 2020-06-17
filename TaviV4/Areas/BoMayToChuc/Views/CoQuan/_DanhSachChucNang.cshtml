@@ -1,0 +1,21 @@
+﻿
+@using MvcContrib.UI.Grid;
+@using PagedList;
+@using PagedList.Mvc;
+@model List<Tavi.BoMayToChuc.ModelEx.ChucNangEntity>
+
+@using Tavi.Core.HtmlEx;
+
+<div class="row">
+    @Html.Grid(Model).Columns(column =>
+{
+
+    column.For(m => Html.CheckBoxEx("ckbFunction","",m.IsActive, false, new { thuocchucnangId = m.ThuocChucNangId, value = m.ChucNangId, id = "chucnangId-" + m.ChucNangId })).Named(Html.CheckBoxEx("checkAllFunction","").ToHtmlString()).Attributes(style => "text-align:center;").HeaderAttributes(style => "text-align:center;");
+    column.For(m => new MvcHtmlString("<span style='padding-left:" + m.Level * 20 + "px; " + (m.Level == 0 ? "font-weight: bold" : "") + "'>" + (m.Level > 0 ? "- " : "") + m.TenChucNang + "</span>"))
+            .Named("Chức năng").Attributes(style => "width:60%").HeaderAttributes(style => "text-align:center;");
+    column.For(m => m.MaChucNang).Named("Mã chức năng").Attributes(style => "width:40%").HeaderAttributes(style => "text-align:center;");
+}).RenderUsing(new CustomHtmlTableGridRenderer<Tavi.BoMayToChuc.ModelEx.ChucNangEntity>(Model.Count)).Attributes(style => "width:100%").Attributes(@class => "table table-bordered").Empty("Chưa có dữ liệu")
+</div>
+<script>
+</script>
+

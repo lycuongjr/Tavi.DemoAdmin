@@ -1,0 +1,112 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="card card-primary card-outline">
+            <div class="card-header text-primary">
+                <span>
+                    THÔNG TIN GIẤY PHÉP
+                </span>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputEmail1">Số quyết định: <span class="text-danger">(*)</span></label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputEmail1">Cơ quan cấp <span class="text-danger">(*)</span></label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputEmail1">Người ký</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputEmail1">Chức vụ</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label>Loại giấy phép</label>
+                                <select class="js-example-basic-single" name="state">
+                                    <option>Cấp phép</option>
+                                    <option>Gia hạn</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputEmail1">Thời hạn khai thác <span class="text-danger">(*)</span></label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputEmail1">Công suất khai thác <span class="text-danger">(*)</span></label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputEmail1">Diện tích khai thác <span class="text-danger">(*)</span></label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                            </div>
+                        </div>
+                        <form>
+                            <div class="form-group row pt-4">
+                                <label for="exampleFormControlFile1" class="col-sm-5 col-form-label">Giấy phép gốc &nbsp;&nbsp;<a href="#">Giấy phép gốc</a></label>
+                                <div class="col-sm-7">
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                </div>
+                            </div>
+                        </form>
+                        <div class="row">
+                            <div class="col-md-3 text-bold">
+                                <span>Trạng thái</span>
+                            </div>
+                            <div class="form-group col-md-9">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="radio1">
+                                    <label class="form-check-label">Còn hiệu lực</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="radio1">
+                                    <label class="form-check-label">Hết hiệu lực</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row pt-4">
+                            <div class="col-md-3 text-bold">
+                                <span>Thẩm quyền cấp</span>
+                            </div>
+                            <div class="form-group col-md-9">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="radio1">
+                                    <label class="form-check-label">Trung Ương</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="radio1">
+                                    <label class="form-check-label">UBND Tỉnh</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-5 border" style="height:550px">
+
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <div class="btn text-center">
+                    <a class="btn btn-primary" href="#" role="button">Duyệt thông tin</a>&nbsp;&nbsp;
+                    <a class="btn btn-outline-primary" href="/MRS/DanhSachDoanhNghiep/ChiTietDoanhNghiep" role="button">Quay lại</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('.js-example-basic-single').select2();
+    });
+</script>

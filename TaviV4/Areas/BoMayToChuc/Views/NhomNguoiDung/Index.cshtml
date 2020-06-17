@@ -1,0 +1,142 @@
+﻿
+@{
+    ViewBag.Title = "Danh sách cơ quan, tổ chức";
+}
+@using Tavi.Core.HtmlEx;
+
+<style>
+    #list-coquan ul{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    #list-coquan ul li{
+        float: left;
+        padding: 10px 10px;
+    }
+
+        #list-coquan ul li div.div-coquan {
+            text-align: center;
+            min-width: 200px;
+            cursor: pointer;
+        }
+
+        #list-coquan ul li div.div-coquan a {
+            color: black;
+        }
+
+            #list-coquan ul li div.div-coquan:hover {
+                background: aliceblue;
+            }
+
+            #list-coquan ul li div.div-coquan.active {
+                background: #17a2b8!important;
+                color: #fff!important
+            }
+            #list-coquan ul li div.div-coquan.active a {
+                color: #fff !important
+            }
+
+            #list-coquan ul li div.div-coquan .ten-co-quan {
+                font-weight: bold;
+            }
+</style>
+<section id="formview">
+    @using (Html.BeginForm())
+    {
+        @Html.Js("Scripts/View/nhomnguoidung.js")
+        @Html.Hidden("hdurl", "/BoMayToChuc/NhomNguoiDung/Index")
+        @Html.Hidden("ActionName", "Index")
+        @Html.Hidden("SelectCoQuanId", ViewBag.SelectCoQuanId as int?)
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0 text-dark">Nhóm người dùng</h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a href="#">Phân quyền sử dụng</a></li>
+                            <li class="breadcrumb-item active">Nhóm người dùng</li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <section class="content">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Cơ quan</h5>
+                            </div>
+                            <div class="card-body" style="padding-bottom: 0px">
+                                <div id="list-coquan"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card card-outline card-primary ">
+                            <div class="card-header">
+                                <h5 class="card-title">Nhóm người dùng</h5>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool btn-default" onclick="viewHieuChinhNhom()" title="Thêm nhóm người dùng">
+                                        <i class="fas fa-user-plus"></i> Thêm mới
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <div id="table-nhomnguoidung" class="table-responsive text-nowrap" style="height:700px"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card card-outline card-primary"  id="card-dsChucNang">
+                            <div class="card-header">
+                                <h5 class="card-title" style="cursor:pointer" data-card-widget="collapse">Phân quyền sử dụng</h5>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool btn-default" id="btnLuuPhanQuyen" title="Lưu phân quyền">
+                                        <i class="fas fa-save"></i> Ghi lại
+                                    </button>
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <div id="table-dsChucNang" class="table-responsive text-nowrap" style="height:635px"></div>
+                            </div>
+                        </div>
+                        <div class="card card-outline card-primary collapsed-card" id="card-dsNguoiDung">
+                            <div class="card-header">
+                                <h5 class="card-title" style="cursor:pointer" data-card-widget="collapse">Danh sách người dùng</h5>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-tool btn-default" id="btnThemNguoiDung" title="Thêm người dùng vào danh sách">
+                                        <i class="fas fa-user-plus"></i> Thêm người dùng
+                                    </button>
+                                    <button type="button" class="btn btn-tool btn-default" id="btnThemNguoiDung" onclick="xoaDanhSachNguoiDung(0,true)" title="Thêm người dùng vào danh sách">
+                                        <i class="fas fa-trash" style="color: firebrick"></i> Xóa tất cả
+                                    </button>
+                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                        <i class="fas fa-minus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <div id="table-dsNguoiDung" class="table-responsive text-nowrap"  style="height:635px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    }
+</section>
+    @section Scripts {
+        <script type="text/javascript" language="javascript">
+        </script>
+    }

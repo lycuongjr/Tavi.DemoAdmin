@@ -1,0 +1,23 @@
+﻿
+@using MvcContrib.UI.Grid;
+@using PagedList;
+@using PagedList.Mvc;
+@model List<Tavi.BoMayToChuc.Models.NhomNguoiDung>
+
+@using Tavi.Core.HtmlEx;
+
+
+        @Html.Grid(Model).RowAttributes(m => new MvcContrib.Hash(coquanId => m.Item != null ? m.Item.CoQuanId : 0, nhomnguoidungId => m.Item != null ? m.Item.NhomNguoiDungId : 0)).Columns(column =>
+    {
+    column.Custom(@<div class="dropdown grid-command">
+            <div class="sett" data-toggle="dropdown"></div>
+            <ul class="dropdown-menu sett_dropdown-caret">
+                <li class="pop_arrow_new"></li>
+                <li onclick="viewHieuChinhNhom(@item.NhomNguoiDungId)"><span><i class="fas fa-edit"></i> Hiệu chỉnh</span></li>
+
+            </ul>
+        </div>).Named("<i class='far fa-hand-point-up'></i>").Attributes(style => "text-align:center");
+  column.For(m => m.TenNhomNguoiDung).Named("Chức năng").Attributes(style => "width:100%").HeaderAttributes(style => "text-align:center;");
+  column.For(m => Html.StatusDisplay(m.ConHoatDong)).Named("Trạng thái").Attributes(style => "width:40%; text-align:center").HeaderAttributes(style => "text-align:center;");
+}).RenderUsing(new CustomHtmlTableGridRenderer<Tavi.BoMayToChuc.Models.NhomNguoiDung>(Model.Count < 10 ? 10 : Model.Count)).Attributes(style => "width:100%").Attributes(@class => "table table-bordered  table-head-fixed").Empty("Chưa có dữ liệu")
+

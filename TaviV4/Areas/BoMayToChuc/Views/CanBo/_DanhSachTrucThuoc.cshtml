@@ -1,0 +1,45 @@
+﻿@using MvcContrib.UI.Grid;
+@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<Tavi.BoMayToChuc.ModelEx.ThongTinCanBo>
+@using Tavi.Core.Constants;
+@using Tavi.BoMayToChuc.Membership;
+
+@using Tavi.Core.HtmlEx;
+@{
+    var currentUser = HttpContext.Current.User.Identity.GetUserLogin();
+    var roles = currentUser.DsChucNang;
+}
+
+<div class="row">
+    @Html.Grid(Model).Columns(column =>
+{
+column.Custom(@<div class="dropdown grid-command">
+            <div class="sett" data-toggle="dropdown"></div>
+            <ul class="dropdown-menu sett_dropdown-caret">
+                <li class="pop_arrow_new"></li>
+                <li onclick="viewCanBoTrucThuoc(@item.CanBoId,@item.CoQuanHienTaiId)"><span><i class="fas fa-edit"></i> Hiệu chỉnh</span></li>
+                <li onclick="ThayDoiTrangThai(@item.CanBoId)"><span><i class="fas fa-ban"></i> @(item.ConHoatDong == true ? "Vô hiệu" : "Kích hoạt")</span></li>
+                @if (roles != null && roles.Any(m => m == Constants.Roles.PHAN_QUYEN_CA_NHAN))
+                            {
+                    <li onclick="PhanQuyenCaNhan(@item.CanBoId)"><span><i class="fas fa-user-cog"></i> Phân quyền cá nhân</span></li>
+                            }
+                <li onclick="XoaCanBo(@item.CanBoId)"><span><i class="fas fa-trash"></i> Xóa</span></li>
+
+            </ul>
+        </div>).Named("<i class='far fa-hand-point-up'></i>").Attributes(style => "text-align:center");
+column.For(m => m.HoVaTen).Named("Tên cán bộ").Attributes(style => "width:20%").HeaderAttributes(style => "text-align:center;");
+column.For(m => m.DienThoai).Named("Điện thoại").Attributes(style => "width:15%").HeaderAttributes(style => "text-align:center;");
+column.For(m => m.Email).Named("Email").Attributes(style => "width:15%").HeaderAttributes(style => "text-align:center;");
+column.For(m => m.TenPhongBan).Named("Phòng ban").Attributes(style => "width:18%").HeaderAttributes(style => "text-align:center;");
+column.For(m => m.TenChucVu).Named("Chức vụ").Attributes(style => "width:17%").HeaderAttributes(style => "text-align:center;");
+column.For(m => Html.StatusDisplay(m.ConHoatDong)).Named("Trạng thái").Attributes(style => "width:10%; text-align:center").HeaderAttributes(style => "text-align:center;");
+}).RenderUsing(new CustomHtmlTableGridRenderer<Tavi.BoMayToChuc.ModelEx.ThongTinCanBo>(Model.Count)).Attributes(style => "width:100%").Attributes(@class => "table table-bordered").Empty("Chưa có dữ liệu")
+</div>
+<div class="row">
+    @Html.PagedListPager(Model, page => "javascript:loadDanhSachCanBo(" + page + ")", PagedRenderOptionExtension.ClassicCustomPage)
+</div>
+<script>
+    $("#hdPageCB").val(@Model.PageNumber);
+</script>
+

@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewBag.Title = "Danh sách cán bộ";
+}
+@using Tavi.Core.HtmlEx;
+    <div id="formview">
+        @using (Html.BeginForm())
+        {
+            @Html.Js("Scripts/View/canbo.js")
+            @Html.Hidden("hdurl", "/BoMayToChuc/CanBo/Index")
+            @Html.Hidden("ActionName", "Index")
+            @Html.Hidden("hdPage");
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0 text-dark">Danh sách cán bộ</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Quản trị</a></li>
+                                <li class="breadcrumb-item active">Hồ sơ cán bộ</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <div class="row">
+                                        <div class="col-md-5 col-lg-5 col-sm-12">
+                                            @Html.TextBox("hdHoVaTen", null, new { @class = "form-control", @placeholder = "Nhập tên cán bộ" })
+                                        </div>
+                                        <div class="col-lg-5 col-lg-5">
+                                            @Html.TextBox("hdTenDangNhap", null, new { @class = "form-control", @placeholder = "Nhập tên đăng nhập" })
+                                        </div>
+                                        <div class="col-md-2 col-lg-2 col-sm-12">
+                                            @Html.Button("Tìm kiếm", "btn btn-primary", "btnTimKiem", "fa fa-search")
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-body table-responsive">
+                                    <div id="dataGrid"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div id="Create" class="btnThemMoi">
+                <div class="btn_plus">
+                    <div class="ctask_ttip">
+                        <span class="label label-default">Thêm mới cán bộ</span>
+                    </div>
+                    <a>
+                        <img src="/Content/Images/plusct.png" class="add_icn">
+                    </a>
+                </div>
+            </div>
+        }
+    </div>
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+        
+    </script>
+}

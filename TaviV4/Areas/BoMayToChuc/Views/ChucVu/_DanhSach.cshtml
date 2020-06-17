@@ -1,0 +1,34 @@
+﻿@using MvcContrib.UI.Grid;
+@using PagedList;
+@using PagedList.Mvc;
+@model IPagedList<Tavi.BoMayToChuc.Models.ChucVu>
+
+@using Tavi.Core.HtmlEx;
+@Html.Hidden("Page")
+
+
+<div class="row">
+    @Html.Grid(Model).Columns(column =>
+{
+column.Custom(@<div class="dropdown grid-command">
+            <div class="sett" data-toggle="dropdown"></div>
+            <ul class="dropdown-menu sett_dropdown-caret">
+                <li class="pop_arrow_new"></li>
+                <li onclick="HieuChinhChucVu(@item.ChucVuId)"><span><i class="fas fa-edit"></i> Hiệu chỉnh</span></li>
+                <li onclick="ThayDoiTrangThai(@item.ChucVuId)"><span><i class="fas fa-ban"></i> @(item.ConHoatDong == true ? "Vô hiệu" : "Kích hoạt")</span></li>
+                <li onclick="XoaChucVu(@item.ChucVuId)"><span><i class="fas fa-trash"></i> Xóa</span></li>
+
+            </ul>
+        </div>).Named("<i class='far fa-hand-point-up'></i>").Attributes(style => "text-align:center");
+column.For(m => m.MaChucVu).Named("Mã chức vụ").Attributes(style => "width:20%");
+column.For(m => m.TenChucVu).Named("Tên chức vụ").Attributes(style => "width:70%");
+column.For(m => Html.StatusDisplay(m.ConHoatDong)).Named("Trạng thái").Attributes(style => "width:10%; text-align:center");
+}).RenderUsing(new CustomHtmlTableGridRenderer<Tavi.BoMayToChuc.Models.ChucVu>(10)).Attributes(style => "width:100%").Attributes(@class => "table table-bordered").Empty("Chưa có dữ liệu")
+</div>
+<div class="row">
+    @Html.PagedListPager(Model, page => "javascript:loadDanhSachChucVu(" + page + ")", PagedRenderOptionExtension.ClassicCustomPage)
+</div>
+<script>
+    $("#hdPage").val(@Model.PageNumber);
+</script>
+

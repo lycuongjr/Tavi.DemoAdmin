@@ -1,0 +1,113 @@
+﻿@Html.Hidden("hdurl", "/MRS/DanhSachDoanhNghiep/Index")
+<div id="dsdoanhnghiep">
+    <div class="row pt-2">
+        <div class="col-md-12">
+            <div class="card card-primary card-outline">
+                <div class="card-header text-bold text-primary">
+                    <span>
+                        DANH SÁCH DOANH NGHIỆP KHAI THÁC KHOÁNG SẢN
+                    </span>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-4 col-form-label">Tên doanh nghiệp:</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="inputEmail3" placeholder="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-4 col-form-label">Thuộc huyện:</label>
+                                <div class="col-sm-8">
+                                    <select class="js-example-basic-single" name="state">
+                                        <option>Thành phố Bắc Giang</option>
+                                        <option>Huyện Lạng Giang</option>
+                                        <option>Huyện Yên Dũng</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-7">
+                            <div class="form-group row">
+                                <label for="inputEmail3" class="col-sm-4 col-form-label">Loại khoáng sản:</label>
+                                <div class="col-sm-8">
+                                    <select class="js-example-basic-single" name="state">
+                                        <option>Chọn nhiều loại khoáng sản</option>
+                                        <option>Than</option>
+                                        <option>Quặng đồng</option>
+                                        <option>Chì</option>
+                                        <option>Vàng</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-5">
+                            <button class="btn btn-primary"><i class="fa fa-search-plus"></i> Tìm kiếm</button>
+                        </div>
+                    </div>
+                    <table class="table table-bordered table-head-fixed">
+                        <thead>
+                            <tr>
+                                <th style="width:5%;" class="bg-info text-center">STT</th>
+                                <th style="width:30%" class="bg-info">Tên doanh nghiệp</th>
+                                <th style="width:40%" class="bg-info">Địa chỉ</th>
+                                <th style="width:10%" class="bg-info">Loại khoáng sản</th>
+                                <th style="width:15%" class="bg-info">Trạng thái</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><a href="/MRS/DanhSachDoanhNghiep/ChiTietDoanhNghiep">Tổng Công ty Đông Bắc</a></td>
+                                <td>Mỏ than Đồng Rì, xã Thanh Sơn và xã Thanh Luận, huyện Sơn Động</td>
+                                <td>Than</td>
+                                <td>Đang hoạt động</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="Create" class="btnThemMoi">
+                        <div class="btn_plus">
+                            <div class="ctask_ttip">
+                                <span class="label label-default">Thêm mới doanh nghiệp</span>
+                            </div>
+                            <a>
+                                <img src="/Content/Images/plusct.png" class="add_icn">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('.js-example-basic-single').select2();
+    });
+</script>

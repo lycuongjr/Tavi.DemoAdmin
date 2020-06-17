@@ -1,0 +1,77 @@
+﻿@model Tavi.BoMayToChuc.Models.PhongBan
+@using Tavi.Core.HtmlEx;
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.PhongBanId)
+    @Html.HiddenFor(m => m.ThuocCoQuanId)
+    @Html.HiddenFor(m => m.ConHoatDong)
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Thêm mới chức vụ</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Đóng">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        @Html.Label("Mã phòng ban: ")
+                        <span class="required"> *</span>
+                        @Html.TextBox("MaPhongBan", null, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Tên phòng ban: ")
+                        <span class="required"> *</span>
+                        @Html.TextBox("TenPhongBan", null, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Địa chỉ: ")
+                        @Html.TextBox("DiaChi", null, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-6">
+                                @Html.Label("Điện thoại: ")
+                                @Html.TextBox("DienThoai", null, new { @class = "form-control" })
+                            </div>
+                            <div class="col-6">
+                                @Html.Label("Email: ")
+                                @Html.TextBox("Email", null, new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        @Html.Label("Số quyết định thành lập: ")
+                        @Html.TextBox("QuyetDinhThanhLap", null, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Ghi chú: ")
+                        @Html.TextArea("GhiChu", null, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-6">
+                                @Html.CheckBoxEx("PB_ConHoatDong", "Còn hoạt động", Model.ConHoatDong.HasValue ? Model.ConHoatDong.Value : true)
+
+                            </div>
+                            <div class="col-6">
+                                @Html.CheckBoxEx("LaPhongBanPhatSinh", "Là phòng phát sinh", Model.LaPhongBanPhatSinh.HasValue ? Model.LaPhongBanPhatSinh.Value : false)
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-sm btn-flat btn-default cmd-close" data-dismiss="modal">Đóng</button>
+            <button type="button" class="btn btn-sm btn-flat btn-primary cmd-save">Ghi lại</button>
+        </div>
+    </div>
+}

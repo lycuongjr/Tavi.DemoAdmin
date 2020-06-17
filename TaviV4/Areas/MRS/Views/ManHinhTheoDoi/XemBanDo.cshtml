@@ -1,0 +1,96 @@
+﻿<div id="=content" class="p-3">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <div class="card-title text-primary">
+                        BẢN ĐỒ KHAI THÁC KHOÁNG SẢN
+                    </div>
+                    <div class="float-right">
+                        <a href="/MRS/ManHinhTheoDoi/Index">Dạng bảng biểu</a>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h5>Hình ảnh bản đồ</h5>
+                </div>
+                <div class="card-footer">
+                    <span><i class="fas fa-square-full text-primary text-lg"></i>&nbsp;&nbsp; Khoáng sản than</span><br/>
+                    <span><i class="fas fa-square-full text-warning text-lg"></i>&nbsp;&nbsp; Khoáng sản đồng</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <div class="card-title text-primary">
+                        Hình ảnh: Công ty TNHH Đại
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="camera border" style="height:400px">
+                        <a href="/MRS/ManHinhTheoDoi/TheoDoiCamera">Camera</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card card-primary card-outline">
+                <div class="card-header">
+                    <div class="card-title text-primary">
+                        BIỂU ĐỒ TỔNG HỢP TRỮ LƯỢNG KHÁI THÁC KHOÁNG SẢN TỪ THÁNG 1 ĐẾN THÁNG 11 NĂM 2019
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="card-body">
+                        <a href="/MRS/ManHinhTheoDoi/ChiTietTruLuong">
+                            <div id="bar-chart"><canvas id="jsChart" style="width:100%; height:335px"></canvas></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        var data = {
+            "labels": ["Than", "Vật liệu XD", "Sét gạch ngói", "Quặng đồng"],
+            "datasets": [
+                {
+                    "label": "Dữ liệu than khoáng sản",
+                    "data": [30, 60, 80, 50],
+                    "fill": false,
+                    "backgroundColor": ["rgba(255, 99, 132, 0.2)", "rgba(255, 159, 64, 0.2)", "rgba(255, 205, 86, 0.2)", "rgba(75, 192, 192, 0.2)"],
+                    "borderColor": ["rgb(255, 99, 132)", "rgb(255, 159, 64)", "rgb(255, 205, 86)", "rgb(75, 192, 192)"],
+                    "borderWidth": 1
+                }
+            ]
+        };
+
+        var options = {
+            "scales":
+            {
+                "yAxes": [
+                    { "ticks": { "beginAtZero": true } }
+                ]
+            }
+        }
+
+        new Chart(document.getElementById("jsChart"), { "type": "bar", "data": data, "options": options });
+
+    })
+
+    /*
+     * Custom Label formatter
+     * ----------------------
+     */
+    function labelFormatter(label, series) {
+        return '<div style="font-size:13px; text-align:center; padding:2px; color: #fff; font-weight: 600;">'
+            + label
+            + '<br>'
+            + Math.round(series.percent) + '%</div>'
+    }
+
+</script>

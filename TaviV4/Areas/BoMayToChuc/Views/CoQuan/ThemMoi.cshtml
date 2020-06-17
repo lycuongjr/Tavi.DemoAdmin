@@ -1,0 +1,219 @@
+﻿
+@{
+    ViewBag.Title = "ThemMoi";
+}
+@model Tavi.BoMayToChuc.Models.CoQuan
+@using Tavi.Core.HtmlEx;
+    <div id="formview">
+        @using (Html.BeginForm())
+        {
+            @Html.Js("Scripts/View/coquan.js")
+            @Html.Hidden("hdurl", "/BoMayToChuc/CoQuan/Index")
+            @Html.Hidden("ActionName", "ThemMoi")
+            @Html.HiddenFor(m => m.CoQuanId)
+            @Html.HiddenFor(m => m.ThuocCoQuanId)
+            @Html.Hidden("infoSuccess")
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0 text-dark">Thông tin cơ quan</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Quản trị</a></li>
+                                <li class="breadcrumb-item active">Cơ quan</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h5 class="card-title">Thông tin chi tiết</h5>
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                @Html.Label("Mã cơ quan: ")
+                                                <span class="required"> *</span>
+                                                @Html.TextBox("MaCoQuan", null, new { @class = "form-control" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.Label("Tên cơ quan: ")
+                                                <span class="required"> *</span>
+                                                @Html.TextBox("TenCoQuan", null, new { @class = "form-control" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.Label("Thuộc cơ quan: ")
+                                                <div id="CoQuan" data-coquanid="@Model.ThuocCoQuanId"></div>
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.Label("Địa chỉ: ")
+                                                @Html.TextBox("DiaChi", null, new { @class = "form-control" })
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        @Html.Label("Điện thoại: ")
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                                            </div>
+                                                            @Html.TextBox("DienThoai", null, new { @class = "form-control" })
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        @Html.Label("Email: ")
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                                            </div>
+                                                            @Html.TextBox("Email", null, new { @class = "form-control" })
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="form-group">
+                                                @Html.Label("Số quyết định thành lập: ")
+                                                @Html.TextBox("QuyetDinhThanhLap", null, new { @class = "form-control" })
+                                            </div>
+                                            <div class="form-group">
+                                                @Html.Label("Ghi chú: ")
+                                                @Html.TextArea("GhiChu", null, new { @class = "form-control" })
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        @Html.CheckBoxEx("ConHoatDong", "Còn hoạt động", Model.ConHoatDong.HasValue ? Model.ConHoatDong.Value : true)
+
+                                                    </div>
+                                                    <div class="col-6">
+                                                        @Html.CheckBoxEx("LaCoQuanPhatSinh", "Là cơ quan phát sinh", Model.LaCoQuanPhatSinh.HasValue ? Model.LaCoQuanPhatSinh.Value : false)
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group" id="dateRange_Unit" style="display:@(Model.LaCoQuanPhatSinh==true? "block" : "none")">
+                                                <div class="row">
+                                                    <div class="col-6">
+                                                        @Html.Label("Ngày bắt đầu: ")
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                                            </div>
+                                                            @Html.DatePicker("NgayBatDau", Model.NgayBatDau, new { @class = "form-control" })
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-6">
+                                                        @Html.Label("Ngày kết thúc: ")
+                                                        <div class="input-group">
+                                                            <div class="input-group-prepend">
+                                                                <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                                                            </div>
+                                                            @Html.DatePicker("NgayKetThuc", Model.NgayKetThuc, new { @class = "form-control" })
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    @Html.Button("Danh sách", "btn btn-sm btn-default", "btnBack", "fa fa-arrow-left")
+                                    @Html.Button("Ghi lại", "btn btn-sm btn-primary float-right", "btnGhiLai", "fa fa-save")
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    @if (Model.CoQuanId > 0)
+                    {
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card collapsed-card">
+                                    <div class="card-header">
+                                        <h5 class="card-title" data-card-widget="collapse" style="cursor:pointer"><i class="fa fa-home"></i>&nbsp;&nbsp;Phòng ban trực thuộc&nbsp;&nbsp;<span class="badge badge-success" id="count-phongbantructhuoc"></span></h5>
+                                        <div class="card-tools">
+                                            <button type="button" class="btn btn-tool btn-default" onclick="viewPhongBanTrucThuoc(null,@Model.CoQuanId)" title="Thêm phòng ban trực thuộc">
+                                                <i class="fas fa-calendar-plus"></i>&nbsp;&nbsp;Thêm mới
+                                            </button>
+                                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body" id="dsPhongBanTrucThuoc">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card collapsed-card">
+                                    <div class="card-header">
+                                        <h5 class="card-title" data-card-widget="collapse" style="cursor:pointer"><i class="fa fa-users"></i>&nbsp;&nbsp;Cán bộ trực thuộc&nbsp;&nbsp;<span class="badge badge-success" id="count-canbotructhuoc"></span></h5>
+                                        <div class="card-tools">
+                                            <button type="button" class="btn btn-tool btn-default" onclick="viewCanBoTrucThuoc(null,@Model.CoQuanId)" title="Thêm cán bộ trực thuộc">
+                                                <i class="fas fa-user-plus"></i> Thêm mới
+                                            </button>
+                                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body" id="dsCanBoTrucThuoc">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="card collapsed-card">
+                                    <div class="card-header">
+                                        <h5 class="card-title" data-card-widget="collapse" style="cursor:pointer"><i class="fa fa-user-cog"></i>&nbsp;&nbsp;Chức năng sử dụng&nbsp;&nbsp;<span class="badge badge-success" id="count-canbotructhuoc"></span></h5>
+                                        <div class="card-tools">
+                                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                                <i class="fas fa-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="card-body" id="dsChucNangSuDung">
+
+                                    </div>
+                                    <div class="card-footer">
+                                        @Html.Button("Ghi lại", "btn btn-sm btn-primary float-right", "btnLuuChucNang", "fa fa-save")
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </section>
+
+        }
+    </div>
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+        @*$(document).ready(function () {
+            ThuocCoQuan(@Model.ThuocCoQuanId)
+        });*@
+    </script>
+}
+
+

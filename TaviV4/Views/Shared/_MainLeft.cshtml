@@ -1,0 +1,73 @@
+﻿@using Tavi.BoMayToChuc.HtmlExtension;
+@using Tavi.BoMayToChuc.Membership;
+@{
+    var currentUser = HttpContext.Current.User.Identity.GetUserLogin();
+}
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <a href="index3.html" class="brand-link">
+        <img src="~/AdminLTE/dist/img/AdminLTELogo.png" alt="Tavi" class="brand-image img-circle elevation-3"
+             style="opacity: .8">
+        <span class="brand-text font-weight-light"><b>Tavi</b> Admin</span>
+    </a>
+    <div class="sidebar">
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="@(string.IsNullOrEmpty(currentUser.AnhDaiDien) ? "/AdminLTE/dist/img/user2-160x160.jpg" : currentUser.AnhDaiDien.Replace("~",""))" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                <a href="#" class="d-block">@currentUser.HoVaTen</a>
+            </div>
+        </div>
+        <nav class="mt-2">
+            @Html.MenuLeft("")
+        </nav>
+    </div>
+</aside>
+
+<script type="text/javascript" language="javascript">
+    function GetUrlLever2() {
+        var url = document.location.toString(); //url
+        var e_url = ''; //edited url
+        var url_l2 = '';
+        var p = 0; //position
+        var p2 = 0; //position 2
+        var p3 = 0;
+        p = url.indexOf("//");
+        e_url = url.substring(p + 2);
+
+        var arr = e_url.split('/');
+        if (arr[1] != '')
+            url_l2 = arr[1];
+        else url_l2 = arr[0];
+        return url_l2;
+    }
+    function fixActive() {
+        var url_active = GetUrlLever2();
+        var i = 0;
+        jQuery.each($("#tavimenu li.nav-item"), function () {
+            if ($(this).find("li").length <= 0) {
+                var href = $(this).find("a").attr('href');
+                if (href == $('#hdurl').val()) {
+                    $(this).find("a").addClass('active');
+                    RootMenuActive();
+                }
+            }
+            jQuery.each($("li > a", this), function () {
+                var href = $(this).attr('href');
+                if (href == $('#hdurl').val()) {
+                    $(this).addClass('active');
+                    $(this).parent().parent().parent().addClass('menu-open');
+                    //var indexname = $(this).parent().attr('index');
+                    // RootMenuActive(indexname);
+                    RootMenuActive();
+                }
+            });
+        });
+    }
+    function RootMenuActive() {
+        $("#tavimenu li.menu-open > a:first").addClass('active');
+    }
+    $(document).ready(function () {
+        fixActive();
+    })
+</script>

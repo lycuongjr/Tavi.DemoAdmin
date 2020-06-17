@@ -1,0 +1,40 @@
+﻿
+@using MvcContrib.UI.Grid;
+@using PagedList;
+@using PagedList.Mvc;
+@model List<Tavi.BoMayToChuc.ModelEx.ChucNangNguoiDungEntity>
+
+@using Tavi.Core.HtmlEx;
+    <div id="div-phanquyencanhan">
+        @Html.Grid(Model).Columns(column =>
+        {
+
+        column.For(m => Html.CheckBoxEx("ckbFunction1", "", m.IsActive, m.HasGroupRole, new { thuocchucnangId = m.ThuocChucNangId, value = m.ChucNangId, id = "chucnangId1-" + m.ChucNangId })).Named(Html.CheckBoxEx("checkAllFunction1", "").ToHtmlString()).Attributes(style => "text-align:center;").HeaderAttributes(style => "text-align:center;");
+        column.For(m => new MvcHtmlString("<span style='padding-left:" + m.Level * 20 + "px; " + (m.Level == 0 ? "font-weight: bold" : "") + "'>" + (m.Level > 0 ? "- " : "") + m.TenChucNang + "</span>"))
+                .Named("Chức năng").Attributes(style => "width:30%").HeaderAttributes(style => "text-align:center;");
+        column.For(m => m.MaChucNang).Named("Mã chức năng").Attributes(style => "width:30%").HeaderAttributes(style => "text-align:center;");
+        column.For(m => m.TenNhomNguoiDung == null ? "" : string.Join(", ", m.TenNhomNguoiDung)).Named("Nhóm quyền").Attributes(style => "width:40%").HeaderAttributes(style => "text-align:center;");
+        }).RenderUsing(new CustomHtmlTableGridRenderer<Tavi.BoMayToChuc.ModelEx.ChucNangNguoiDungEntity>(Model.Count > 10 ? Model.Count : 10)).Attributes(style => "width:100%").Attributes(@class => "table table-bordered table-head-fixed").Empty("Chưa có dữ liệu")
+    </div>
+<script>
+    $("#div-phanquyencanhan #checkAllFunction1").change(function () {
+                $("#div-phanquyencanhan").find("input[name=ckbFunction1]").not(":disabled").prop("checked", $(this).prop('checked'));
+    })
+    var isCheck = true;
+    $("#div-phanquyencanhan").find("input[name=ckbFunction1]").change(function () {
+        // check child row
+        if (isCheck) {
+            $("#div-phanquyencanhan").find("input[name=ckbFunction1][thuocchucnangId=" + $(this).val() + "]").prop("checked", $(this).prop('checked'));
+            $("#div-phanquyencanhan").find("input[name=ckbFunction1][thuocchucnangId=" + $(this).val() + "]").trigger('change');
+            isCheck = true;
+        }
+        // check parent row
+        if ($(this).prop('checked')) {
+            isCheck = false;
+            $("#div-phanquyencanhan").find("#chucnangId1-" + $(this).attr("thuocchucnangId")).prop("checked", true);
+            $("#div-phanquyencanhan").find("#chucnangId1-" + $(this).attr("thuocchucnangId")).trigger('change');
+            isCheck = true;
+        }
+    })
+</script>
+

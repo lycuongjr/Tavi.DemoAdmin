@@ -1,0 +1,12 @@
+﻿@model List<FileInfo>
+@using MvcContrib.UI.Grid;
+@using Tavi.Core.HtmlEx;
+
+@Html.Grid(Model).Columns(column =>
+{
+column.For(m => Html.GetFileName(m.Name)).Named("Tên file").Attributes(style => "width:40%").HeaderAttributes(style => "text-align:left !important;");
+column.For(m => m.FullName).Named("").Visible(false).Attributes(@class => "fullName");
+column.For(m => Html.GetFileSize(m.Length)).Named("Cỡ").Attributes(style => "width:25%; text-align:right !important;").HeaderAttributes(style => "text-align:right !important;");
+column.For(m => m.LastWriteTime.ToString("dd/MM/yyyy")).Named("Thời gian").Attributes(style => "width:25%;text-align:center !important;").HeaderAttributes(style => "text-align:center !important;");
+column.For(m => new MvcHtmlString("<span><i class='fa fa-eye' title='Xem file' onclick='ViewFile(\"" + m.FullName + "\")'></i></span>&nbsp;&nbsp;<span><i class='fa fa-trash text-danger' title='Xóa file' onclick='RemoveFile(\"" + HttpUtility.UrlEncode(m.FullName) + "\")'></i></span>")).Named("#").Attributes(style => "width:10%").HeaderAttributes(style => "text-align:center;");
+}).RenderUsing(new CustomHtmlTableGridRenderer<FileInfo>(Model.Count() < 10 ? 10 : Model.Count())).Attributes(style => "width:100%").Attributes(@class => "table table-header-fixed").Empty("Chưa có dữ liệu")

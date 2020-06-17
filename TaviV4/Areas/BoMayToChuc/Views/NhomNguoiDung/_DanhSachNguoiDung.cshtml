@@ -1,0 +1,17 @@
+﻿@using MvcContrib.UI.Grid;
+@using PagedList;
+@using PagedList.Mvc;
+@model List<Tavi.BoMayToChuc.ModelEx.ThongTinCanBo>
+
+@using Tavi.Core.HtmlEx;
+
+        @Html.Grid(Model).Columns(column =>
+    {
+        column.For(m => m.HoVaTen).Named("Tên cán bộ").Attributes(style => "width:25%").HeaderAttributes(style => "text-align:center;");
+        column.For(m => m.TenDangNhap).Named("Tên đăng nhập").Attributes(style => "width:25%").HeaderAttributes(style => "text-align:center;");
+        column.For(m => m.TenPhongBan).Named("Phòng ban").Attributes(style => "width:25%").HeaderAttributes(style => "text-align:center;");
+        column.For(m => m.TenChucVu).Named("Chức vụ").Attributes(style => "width:25%").HeaderAttributes(style => "text-align:center;");
+        column.For(m => new MvcHtmlString("<a style='padding: 2px 5px; cursor: pointer; color: firebrick; border: 1px solid #e01f1f' title='Xóa người dùng khỏi danh sách' onclick='xoaDanhSachNguoiDung(" + m.CanBoId + ")'><i class='fas fa-trash'></i></a>")).Named("Xóa").Attributes(style => "text-align:center;").HeaderAttributes(style => "text-align:center;");
+        }).RenderUsing(new CustomHtmlTableGridRenderer<Tavi.BoMayToChuc.ModelEx.ThongTinCanBo>(Model.Count > 10 ? Model.Count : 10)).Attributes(style => "width:100%").Attributes(@class => "table table-bordered table-head-fixed").Empty("Chưa có dữ liệu")
+
+

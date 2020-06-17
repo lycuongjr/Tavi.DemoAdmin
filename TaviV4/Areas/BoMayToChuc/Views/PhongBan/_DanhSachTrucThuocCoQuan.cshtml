@@ -1,0 +1,36 @@
+﻿@model IPagedList<Tavi.BoMayToChuc.Models.PhongBan>
+
+@using MvcContrib.UI.Grid;
+@using PagedList;
+@using PagedList.Mvc;
+@using Tavi.Core.HtmlEx;
+
+
+    <div class="row">
+        @Html.Grid(Model).Columns(column =>
+    {
+        column.Custom(@<div class="dropdown grid-command">
+                <div class="sett" data-toggle="dropdown"></div>
+                <ul class="dropdown-menu sett_dropdown-caret">
+                    <li class="pop_arrow_new"></li>
+                    <li onclick="viewPhongBanTrucThuoc(@item.PhongBanId,@item.ThuocCoQuanId)"><span><i class="fas fa-edit"></i> Hiệu chỉnh</span></li>
+                    <li onclick="ThayDoiTrangThaiPhongBan(@item.PhongBanId)"><span><i class="fas fa-ban"></i> @(item.ConHoatDong == true ? "Vô hiệu" : "Kích hoạt")</span></li>
+                    <li onclick="XoaPhongBan(@item.PhongBanId)"><span><i class="fas fa-trash"></i> Xóa</span></li>
+
+                </ul>
+            </div>).Named("<i class='far fa-hand-point-up'></i>").Attributes(style => "text-align:center");
+        column.For(m => m.MaPhongBan).Named("Mã phòng").HeaderAttributes(@style => "width:15%");
+        column.For(m => m.TenPhongBan).Named("Tên phòng").HeaderAttributes(@style => "width:20%");
+        column.For(m => m.DienThoai).Named("Điện thoại").HeaderAttributes(@style => "width:15%");
+        column.For(m => m.Email).Named("Email").HeaderAttributes(@style => "width:15%");
+        column.For(m => m.DiaChi).Named("Địa chỉ").HeaderAttributes(@style => "width:30%");
+        column.For(m => Html.StatusDisplay(m.ConHoatDong)).Named("Trạng thái").Attributes(style => "width:10%; text-align:center").HeaderAttributes(style => "text-align:center;");
+    }).RenderUsing(new CustomHtmlTableGridRenderer<Tavi.BoMayToChuc.Models.PhongBan>(Model.Count)).Attributes(@class => "table table-bordered", style => "width:100%;margin-bottom: 0px").Empty("Chưa có dữ liệu")
+    </div>
+<div class="row">
+    @Html.PagedListPager(Model, page => "javascript:loadDanhSachPhongBan(" + page +")", PagedRenderOptionExtension.ClassicCustomPage)
+</div>
+<script>
+    $("#hdPagePB").val(@Model.PageNumber);
+</script>
+

@@ -1,0 +1,32 @@
+﻿@model Tavi.BoMayToChuc.Models.ChucVu
+@using Tavi.Core.HtmlEx;
+
+@using (Html.BeginForm())
+{
+    @Html.Hidden("ChucVuId")
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Thêm mới chức vụ</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Đóng">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                @Html.Label("Mã chức vụ:")
+                @Html.TextBox("MaChucVu", Model.MaChucVu, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Tên chức vụ:")
+                @Html.TextBox("TenChucVu", Model.TenChucVu, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.CheckBoxEx("ConHoatDong", "Còn sử dụng",Model.ConHoatDong ?? true)
+            </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-sm btn-flat btn-default cmd-close" data-dismiss="modal">Đóng</button>
+            <button type="button" class="btn btn-sm btn-flat btn-primary cmd-save" onclick="GhiLaiChucVu(this)">Ghi lại</button>
+        </div>
+    </div>
+}

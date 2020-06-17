@@ -1,0 +1,25 @@
+﻿@model List<Tavi.BoMayToChuc.Models.CoQuan>
+
+<div class="row">
+    <div>
+    @if (Model != null && Model.Any())
+    {
+        <ul>
+            @foreach(var coquan in Model)
+            {
+                <li id="coquanId-@coquan.CoQuanId">
+                    <div class="div-coquan small-box bg-default" onclick="loadDanhSachNhom(@coquan.CoQuanId, this)" data-coquanId="@coquan.CoQuanId">
+                        <div class="inner">
+                            <div class="ten-co-quan">@coquan.TenCoQuan</div>
+                            <div class="ma-co-quan">@coquan.MaCoQuan</div>
+                        </div>
+                        <a href="@Url.Action("ThemMoi","CoQuan",new { id = coquan.CoQuanId})" target="_blank" class="small-box-footer">
+                            Thông tin <i class="fas fa-arrow-circle-right"></i>
+                        </a>
+                    </div>
+                </li>
+            }
+        </ul>
+    }
+    </div>
+</div>

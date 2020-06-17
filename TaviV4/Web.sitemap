@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="" title=""  description="">
+
+    <siteMapNode url="~/MRS/ManHinhTheoDoi/Index#" class="nsd" icon="fas fa-th-large nav-icon" index="nsd" title="Màn hình theo dõi" roles="">
+      <siteMapNode url="~/MRS/ManHinhTheoDoi/Index" icon="fas fa-caret-right nav-icon" index="nsd" title="Màn hình theo dõi" roles=""></siteMapNode>
+    </siteMapNode>
+    <siteMapNode url="~/MRS/DanhSachDoanhNghiep/Index#" class="nsd" icon="nav-icon fas fa-book nav-icon" index="nsd" title="QLTT doanh nghiệp" roles="">
+      <siteMapNode url="~/MRS/DanhSachDoanhNghiep/Index" icon="fas fa-caret-right nav-icon" index="nsd" title="Danh sách doanh nghiệp" roles=""></siteMapNode>
+      <siteMapNode url="~/MRS/DSXeChoDuyet/Index" icon="fas fa-caret-right nav-icon" index="nsd" title="Danh sách xe chờ duyệt" roles=""></siteMapNode>
+    </siteMapNode>
+
+    <siteMapNode url="~/MRS/BCDanhSachDoanhNghiep/Index#" class="nsd" icon="nav-icon fas fa-copy" index="nsd" title="Thống kê, báo cáo" roles="">
+    <siteMapNode url="~/MRS/BCDanhSachDoanhNghiep/Index" icon="fas fa-caret-right nav-icon" index="nsd" title="Tổng hợp DS doanh nghiệp" roles=""></siteMapNode>
+    <siteMapNode url="~/MRS/BCTruLuong/Index" icon="fas fa-caret-right nav-icon" index="nsd" title="Tổng hợp trữ lượng khai thác" roles=""></siteMapNode>
+    <siteMapNode url="~/MRS/BCXeVaoMo/Index" icon="fas fa-caret-right nav-icon" index="nsd" title="Báo cáo xe vào mỏ" roles=""></siteMapNode>
+    <siteMapNode url="~/MRS/BCViPham/Index" icon="fas fa-caret-right nav-icon" index="nsd" title="Báo cáo sai phạm" roles=""></siteMapNode>
+    </siteMapNode>
+
+    <siteMapNode url="~/MRS/CameraHA/Index#" class="nsd" icon="nav-icon far fa-image" index="nsd" title="Giám sát camera" roles="">
+    <siteMapNode url="~/MRS/CameraHA/Index" icon="fas fa-caret-right nav-icon" index="nsd" title="Hình ảnh lưu trữ" roles=""></siteMapNode>
+    <siteMapNode url="~/MRS/CameraHAViPham/Index" icon="fas fa-caret-right nav-icon" index="nsd" title="Hình ảnh vi phạm" roles=""></siteMapNode>
+    <siteMapNode url="~/MRS/CameraTrucTuyen/Index" icon="fas fa-caret-right nav-icon" index="nsd" title="Xem trực tuyến" roles=""></siteMapNode>
+    </siteMapNode>
+
+    <siteMapNode url="~/MRS/GuiThongBao/Index#" class="nsd" icon="nav-icon far fa-envelope" index="nsd" title="Gửi thông báo" roles="">
+    <siteMapNode url="~/MRS/GuiThongBao/Index" icon="fas fa-caret-right nav-icon" index="nsd" title="Gửi thông báo" roles=""></siteMapNode>
+    <siteMapNode url="~/MRS/NhanThongBao/Index" icon="fas fa-caret-right nav-icon" index="nsd" title="Nhận thông báo" roles=""></siteMapNode>
+    </siteMapNode>
+    <!--Quan tri người dùng-->
+    <!--Quan tri người dùng-->
+    <siteMapNode url="~/BoMayToChuc/CoQuan/Index#" class="qttochuc" icon="fa fa-user nav-icon" index="qtnguoidung" title="Bộ máy tổ chức" roles="BO_MAY_TO_CHUC">
+      <siteMapNode url="~/BoMayToChuc/CoQuan/Index" index="qttochuc"  icon="fas fa-caret-right nav-icon"  title="Danh sách cơ quan" roles="DANH_MUC_CO_QUAN"  description="Danh sách cơ quan" />
+      <!--<siteMapNode url="~/BoMayToChuc/PhongBan/Index" index="qttochuc"   icon="fas fa-caret-right nav-icon" title="Danh mục phòng ban" roles="DANH_MUC_PHONG_BAN" description="Danh mục phòng ban" />-->
+      <siteMapNode url="~/BoMayToChuc/CanBo/Index" index="qttochuc"   icon="fas fa-caret-right nav-icon" title="Danh mục cán bộ" roles="DANH_MUC_CAN_BO" description="Danh mục cán bộ" />
+      <siteMapNode url="~/BoMayToChuc/ChucVu/Index" index="qttochuc"   icon="fas fa-caret-right nav-icon" title="Danh mục chức vụ" roles="DANH_MUC_CHUC_VU" description="Danh mục chức vụ" />
+    </siteMapNode>
+    
+    <!--Cấu hình người dùng-->
+    <siteMapNode url="~/BoMayToChuc/NhomNguoiDung/Index#" class="nsd" icon="fas fa-user-secret nav-icon" index="nsd" title="Phân quyền sử dụng" roles="PHAN_QUYEN_SU_DUNG">
+      <siteMapNode url="~/BoMayToChuc/NhomNguoiDung/Index" index="nsd"  icon="fas fa-caret-right nav-icon"  title=" Nhóm người dùng" roles="NHOM_NGUOI_DUNG"  description="Cấu hình người dùng theo đơn vị" />
+      <siteMapNode url="~/BoMayToChuc/PhanQuyenCaNhan/Index" index="nsd"   icon="fas fa-caret-right nav-icon" title=" Phân quyền cá nhân" roles="CAU_HINH_CHUC_NANG_PHONG" description="Cấu hình người dùng theo phòng" />
+    </siteMapNode>
+    <siteMapNode url="~/Extension/FileManager#" class="nsd" icon="fas fa-th-large nav-icon" index="nsd" title="Tiện ích mở rộng" roles="">
+      <siteMapNode url="~/Extension/FileManager" index="nsd"  icon="fas fa-caret-right nav-icon"  title=" Quản lý tập tin" roles=""  description="Quản lý tập tin" />
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

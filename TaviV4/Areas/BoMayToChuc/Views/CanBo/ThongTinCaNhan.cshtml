@@ -1,0 +1,159 @@
+﻿
+@{
+    ViewBag.Title = "Thông tin cá nhân";
+}
+@using Tavi.Core.HtmlEx;
+@model Tavi.BoMayToChuc.ModelEx.ThongTinCanBo
+<div id="formview">
+    @Html.Js("Scripts/View/thongtincanhan.js")
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Thông tin cá nhân</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+                        <li class="breadcrumb-item active">Thông tin cá nhân</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-3">
+                    <!--left col-->
+                    <div class="card card-primary card-outline">
+                        <div class="card-body box-profile">
+                            <div class="text-center">
+                                <img src="@(string.IsNullOrEmpty(Model.AnhDaiDien) ? "/AdminLTE/dist/img/avatar_2x.png" : Model.AnhDaiDien.Replace("~",""))" class="avatar profile-user-img img-fluid img-circle" style="width: 70%" alt="avatar">
+                                <h6>Thay đổi ảnh đại diện...</h6>
+                                <input type="file" class="text-center center-block file-upload" id="user-image-upload">
+                            </div><br>
+
+
+                            <ul class="list-group list-group-unbordered mb-3">
+                                <li class="list-group-item">
+                                    <b>Chức vụ</b> <a class="float-right">@Model.TenChucVu</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Phòng ban</b> <a class="float-right">@Model.TenPhongBan</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <b>Cơ quan</b> <a class="float-right">@Model.TenCoQuan</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                </div><!--/col-3-->
+                <div class="col-sm-9">
+                    <div class="card card-primary card-outline">
+                        <div class="card-header p-2">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item"><a class="nav-link active" href="#us_info" data-toggle="tab">Cá nhân</a></li>
+                                <li class="nav-item"><a class="nav-link" href="#us_account" data-toggle="tab">Tài khoản</a></li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="us_info">
+                                    <form>
+                                        @Html.Hidden("CanBoId", Model.CanBoId)
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <h5><label for="first_name">Họ và tên</label><span class="text-danger">(*)</span></h5>
+                                                    @Html.TextBox("HoVaTen", null, new { @class = "form-control", placeholder = "Nhập họ tên" })
+                                                </div>
+                                                <div class="form-group">
+                                                    <h5><label for="last_name">Số chứng minh thư</label></h5>
+                                                    @Html.TextBox("SoCMND", null, new { @class = "form-control", placeholder = "Nhập số CMT" })
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <h5><label for="phone">Số thẻ căn cước</label></h5>
+                                                    @Html.TextBox("SoTheCanCuoc", null, new { @class = "form-control", placeholder = "Nhập số thẻ căn cước" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <h5><label for="mobile">Số điện thoại</label></h5>
+                                                    @Html.TextBox("DienThoai", null, new { @class = "form-control", placeholder = "Nhập số điện thoại" })
+                                                </div>
+                                                <div class="form-group">
+                                                    <h5><label for="email">Email</label></h5>
+                                                    @Html.TextBox("Email", null, new { @class = "form-control", type = "email", placeholder = "Nhập email" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <br>
+                                                    <button class="btn btn-success" type="button" onclick="CapNhatThongTin()"><i class="fa fa-save"></i> Ghi lại</button>
+                                                    <button class="btn btn-default" type="reset"><i class="fa fa-sync"></i> Làm mới</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="tab-pane" id="us_account">
+                                    <form>
+                                        @Html.Hidden("CanBoId", Model.CanBoId)
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <h5><label for="first_name">Tên đăng nhập</label></h5>
+                                                    @Html.TextBox("TenDangNhap", null, new { @class = "form-control", @readonly = "readonly" })
+                                                </div>
+                                                <div class="form-group">
+                                                    <h5><label for="last_name">Mật khẩu cũ</label></h5>
+                                                    @Html.TextBox("MatKhau", null, new { @class = "form-control", placeholder = "Nhập mật khẩu cũ", type = "password" })
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <h5><label for="first_name">Mật khẩu mới</label></h5>
+                                                    @Html.TextBox("MatKhauMoi", null, new { @class = "form-control", placeholder = "Nhập mật khẩu mới", type = "password" })
+                                                </div>
+                                                <div class="form-group">
+                                                    <h5><label for="last_name">Xác thực mật khẩu mới</label></h5>
+                                                    @Html.TextBox("XacThucMatKhau", null, new { @class = "form-control", placeholder = "Nhập lại mật khẩu mới", type = "password" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-12">
+                                                    <br>
+                                                    <button class="btn btn-success" type="button" onclick="CapNhatMatKhau()"><i class="fa fa-save"></i> Đổi mật khẩu</button>
+                                                    <button class="btn btn-default" type="reset"><i class="fa fa-sync"></i> Làm mới</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div><!--/col-9-->
+            </div><!--/row-->
+        </div>
+    </section>
+    <div id="Create" class="btnThemMoi">
+        <div class="btn_plus">
+            <div class="ctask_ttip">
+                <span class="label label-default">Thêm mới cán bộ</span>
+            </div>
+            <a>
+                <img src="/Content/Images/plusct.png" class="add_icn">
+            </a>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    <script type="text/javascript" language="javascript">
+
+    </script>
+}

@@ -1,0 +1,92 @@
+﻿@model Tavi.BoMayToChuc.Models.HoSoCanBo
+@using Tavi.Core.HtmlEx;
+
+@using (Html.BeginForm())
+{
+    @Html.HiddenFor(m => m.CanBoId)
+    @Html.HiddenFor(m => m.CoQuanHienTaiId)
+    @Html.HiddenFor(m => m.PhongBanHienTaiId)
+    @Html.HiddenFor(m => m.ChucVuHienTaiId)
+    @Html.HiddenFor(m => m.ConHoatDong)
+    <div class="modal-content">
+        <div class="modal-header">
+            <h4 class="modal-title">Hiệu chỉnh cán bộ</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Đóng">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body" style="max-height:500px; overflow-y: auto">
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="form-group">
+                        @Html.Label("Mã cán bộ: ")
+                        @Html.TextBox("MaCanBo", null, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Họ và tên: ")
+                        <span class="required"> *</span>
+                        @Html.TextBox("HoVaTen", null, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-6">
+                                @Html.Label("Tên đăng nhập: ")<span class="required"> *</span>
+                                @Html.TextBox("TenDangNhap", null, new { @class = "form-control" })
+                            </div>
+                            <div class="col-6">
+                                @Html.Label("Mật khẩu: ")<span class="required"> *</span>
+                                @Html.Password("MatKhau", Model.MatKhau, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-6">
+                                @Html.Label("Điện thoại: ")
+                                @Html.TextBox("DienThoai", null, new { @class = "form-control" })
+                            </div>
+                            <div class="col-6">
+                                @Html.Label("Email: ")
+                                @Html.TextBox("Email", null, new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-6 col-sm-12">
+                                @Html.Label("Số CMTND (nếu có): ")
+                                @Html.TextBox("SoCMND", null, new { @class = "form-control" })
+                            </div>
+                            <div class="col-md-6 col-sm-12">
+                                @Html.Label("Số thẻ căn cước (nếu có): ")
+                                @Html.TextBox("SoTheCanCuoc", null, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="form-group">
+                        @Html.Label("Phòng ban hiện tại: ")<span class="required"> *</span>
+                        <div id="PhongBan" data-phongbanid="@Model.PhongBanHienTaiId">
+                            @*<select class="select2"><option value="">------- Chọn phòng ban -------</option></select>*@
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.Label("Chức vụ hiện tại: ")<span class="required"> *</span>
+                        <div id="ChucVu" data-chucvuid="@Model.ChucVuHienTaiId">
+                            @*<select class="select2"><option value="">------- Chọn chức vụ -------</option></select>*@
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.CheckBoxEx("CB_ConHoatDong", "Còn hoạt động", Model.ConHoatDong.HasValue ? Model.ConHoatDong.Value : true)
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+            <button type="button" class="btn btn-sm btn-flat btn-default cmd-close" data-dismiss="modal">Đóng</button>
+            <button type="button" class="btn btn-sm btn-flat btn-primary cmd-save">Ghi lại</button>
+        </div>
+    </div>
+}

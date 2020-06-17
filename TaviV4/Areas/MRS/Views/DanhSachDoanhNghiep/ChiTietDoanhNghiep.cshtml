@@ -1,0 +1,228 @@
+﻿<div class="row">
+    <div class="col-md-12">
+        <div class="card card-primary card-outline">
+            <div class="card-header text-primary">
+                <span>
+                    THÔNG TIN CHI TIẾT DOANH NGHIỆP
+                </span>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Tên doanh nghiệp</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-3">
+                                <label>Địa chỉ</label>
+                                <input type="text" class="form-control" placeholder="">
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label>Tỉnh</label>
+                                <select class="js-example-basic-single" name="state">
+                                    <option>Bắc Giang</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label>Huyện/TP</label>
+                                <select class="js-example-basic-single" name="state">
+                                    <option>TP Bắc Giang</option>
+                                    <option>Huyện Lạng Giang</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label>Xã/Phường</label>
+                                <select class="js-example-basic-single" name="state">
+                                    <option>Trần Nguyễn Hãn</option>
+                                    <option>Hoàng Văn A</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Người đại diện</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Vốn điều lệ</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Mã doanh nghiệp</label>
+                            <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputEmail1">Email</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exampleInputEmail1">Số điện thoại</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Lĩnh vực hoạt động</label>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="AAA,BBB">
+                                <div class="input-group-append">
+                                    <span class="input-group-text"><a href="#"><i class="fas fa-plus-circle text-dark" data-toggle="popover"></i></a></span>
+                                </div>
+                            </div>
+                        </div>
+                        <form>
+                            <div class="form-group row pt-4">
+                                <label for="exampleFormControlFile1" class="col-sm-6 col-form-label">Giấy phép đăng ký kinh doanh</label>
+                                <div class="col-sm-6">
+                                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="pills-one-tab" data-toggle="pill" href="#pills-one" role="tab" aria-controls="pills-one" aria-selected="true">Danh sách mỏ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="false">Danh sách xe vận chuyển</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Giấy phép khai thác</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Thiết bị tại mỏ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-about-tab" data-toggle="pill" href="#pills-about" role="tab" aria-controls="pills-about" aria-selected="false">Tài khoản quản trị</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-index-tab" data-toggle="pill" href="#pills-index" role="tab" aria-controls="pills-index" aria-selected="false">Thủ tục hành chính</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="pills-account-tab" data-toggle="pill" href="#pills-account" role="tab" aria-controls="pills-account" aria-selected="false">Quản lý cấu hình</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content col-md-12" id="pills-tabContent">
+                        <div class="tab-pane fade show active" id="pills-one" role="tabpanel" aria-labelledby="pills-one-tab">
+                            <div id="list-dsmo">
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                            <div id="list-xevc">
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                            <div id="list-giayphep">
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                            <div id="list-thietbi">
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-about" role="tabpanel" aria-labelledby="pills-about-tab">
+                            <div id="list-taikhoan">
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-index" role="tabpanel" aria-labelledby="pills-index-tab">
+                            <div id="list-thutuc">
+
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="pills-account" role="tabpanel" aria-labelledby="pills-account-tab">
+                            <div id="list-cauhinh">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .popover {
+        min-width: 400px;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        $('.js-example-basic-single').select2();
+    });
+    const options = {
+        title: '<strong>LĨNH VỰC HOẠT ĐỘNG<strong> <button type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button >',
+        html: true,
+        content: `<div id='listDevice'>
+                    <table class="table table-bordered">
+                        <thead>
+                             <th style="width:10%;"></th>
+                             <th style="width:50%">Tên ngành nghề</th>
+                             <th style="width:40%">Mã ngành</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td colspan='3'>Chưa có dữ liệu</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>`,
+        sanitize: false,
+        placement:"left"
+    }
+    $(function () {
+        $('[data-toggle="popover"]').popover(options)
+    })
+
+    $('[data-toggle="popover"]').on('show.bs.popover', function () {
+        $.ajax({
+            url: "/MRS/DanhSachDoanhNghiep/_LinhVucHoatDong",
+            type: "GET",
+            dataType: "html",
+            success: function (data) {
+                $("#listDevice").html(data);
+            },
+            error: function () {
+
+            }
+        })
+    })
+    $.ajax({
+        url: "/MRS/DanhSachDoanhNghiep/_DanhSachMo",
+        type: "GET",
+        dataType: "html",
+        success: function (data) {
+            console.log(data);
+            $("#list-dsmo").html(data);
+        },
+        error: function (data) {
+            console.log("Has error");
+        }
+    })
+    $("#pills-home-tab").click(function () {
+        $("#list-xevc").load("/MRS/DanhSachDoanhNghiep/_DSXeVanChuyen").show();
+    });
+    $("#pills-profile-tab").click(function () {
+        $("#list-giayphep").load("/MRS/DanhSachDoanhNghiep/_GiayPhepKhaiThac").show();
+    });
+    $("#pills-contact-tab").click(function () {
+        $("#list-thietbi").load("/MRS/DanhSachDoanhNghiep/_ThietBiTaiMo").show();
+    });
+    $("#pills-about-tab").click(function () {
+        $("#list-taikhoan").load("/MRS/DanhSachDoanhNghiep/_TaiKhoanQuanTri").show();
+    });
+    $("#pills-index-tab").click(function () {
+        $("#list-thutuc").load("/MRS/DanhSachDoanhNghiep/_ThuTucHanhChinh").show();
+    });
+    $("#pills-account-tab").click(function () {
+        $("#list-cauhinh").load("/MRS/DanhSachDoanhNghiep/_QuanLyCauHinh").show();
+    });
+</script>

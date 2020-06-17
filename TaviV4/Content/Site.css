@@ -1,0 +1,322 @@
+﻿body{
+    font-size: 15px;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 7px
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-track {
+    background: #ddd;
+}
+
+/*Menu css - Side bar*/
+#tavimenu li.nav-item {
+    width: 100%
+}
+
+    #tavimenu li.nav-item a.nav-link {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    #tavimenu li.nav-item a.nav-link p .right {
+        right: 0.5rem;
+    }
+
+.sidebar-collapse #tavimenu li.nav-item a.nav-link {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+a.app-name {
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #007bff !important;
+    /*font-size: 17px;
+    padding-top: 6px;*/
+}
+
+.datepicker td, .datepicker th {
+    width: 30px;
+    height: 25px;
+}
+
+
+.btnThemMoi {
+    position: fixed;
+    right: 3%;
+    bottom: 5%;
+    z-index: 9;
+}
+
+.ctask_ttip {
+    display: inline-block;
+    height: 1px;
+    margin: 0;
+    opacity: 0;
+    position: relative;
+    text-align: right;
+    transition: opacity 150ms cubic-bezier(0.4, 0, 1, 1) 0s;
+    width: 1px;
+}
+
+.btn_plus a {
+    background: #f6911d none repeat scroll 0 0;
+    border-radius: 50%;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.14), 0 4px 8px rgba(0, 0, 0, 0.28);
+    box-sizing: content-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 34px;
+    height: 56px;
+    outline: medium none;
+    pointer-events: auto;
+    text-align: center;
+    text-decoration: none;
+    transform: scale(1) rotate(360deg);
+    transition: transform 150ms cubic-bezier(0.4, 0, 1, 1) 0s;
+    width: 56px;
+}
+
+    .btn_plus a:hover {
+        box-shadow: 0 0 6px rgba(0, 0, 0, 0.16), 0 6px 12px rgba(0, 0, 0, 0.32);
+        transition: box-shadow 150ms cubic-bezier(0, 0, 0.2, 1) 0s;
+    }
+
+.ctask_ttip .label {
+    background: rgba(70, 70, 70, 0.9) none repeat scroll 0 0;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    display: inline-block;
+    font-size: 13px;
+    padding: 6px 8px;
+    position: absolute;
+    right: 8px;
+    top: -35px;
+    color: #ffffff;
+    min-width: 150px;
+}
+
+.btnThemMoi:hover .ctask_ttip {
+    opacity: 1;
+    transition: opacity 150ms cubic-bezier(0, 0, 0.2, 1) 0s;
+}
+
+.btnThemMoi:hover .ctask_ttip {
+    opacity: 1;
+    transition: opacity 150ms cubic-bezier(0, 0, 0.2, 1) 0s;
+}
+
+.btn_plus a:hover {
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.16), 0 6px 12px rgba(0, 0, 0, 0.32);
+    transition: box-shadow 150ms cubic-bezier(0, 0, 0.2, 1) 0s;
+}
+
+label.required, label.error {
+    color: red;
+    font-weight: normal !important;
+    font-style: italic
+}
+
+input.required, input.error {
+    border-color: red !important;
+}
+
+.validation-summary-errors ul {
+    padding: 0px;
+    text-align: center;
+}
+
+.validation-summary-errors ul li {
+    list-style-type: none;
+    background-color: orange;
+    color: white
+}
+
+
+.sett {
+    background: rgba(0, 0, 0, 0) url("Images/sprite_osv2.png") no-repeat scroll -275px -145px;
+    cursor: pointer;
+    height: 18px;
+    /* margin: 3px 5px 0 3px;*/
+    opacity: 0.3;
+    width: 20px;
+}
+
+.dropdown-menu.sett_dropdown-caret {
+    margin-top: 11px;
+    width: max-content;
+    left: -7px !important;
+}
+
+.dropdown-menu.sett_dropdown-caret li {
+    padding-left: 33px !important;
+    position: relative;
+}
+
+.dropdown-menu.sett_dropdown-caret li span .fa, .dropdown-menu.sett_dropdown-caret li span .fas {
+    position: absolute;
+    left: 10px;
+    top: 7px;
+}
+
+.dropdown-menu {
+    background-clip: padding-box;
+    background-color: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.176);
+    display: none;
+    float: left;
+    font-size: 14px;
+    /*left: 0;*/
+    list-style: outside none none;
+    margin: 2px 0 0;
+    /*min-width: 160px;*/
+    padding: 5px 0;
+    position: absolute;
+    top: 100%;
+    z-index: 1000;
+}
+
+.pop_arrow_new {
+    background: rgba(0, 0, 0, 0) url("Images/arrow.png") no-repeat scroll 0 0;
+    height: 12px;
+    margin-left: 4px;
+    margin-top: -17px;
+    position: absolute;
+    width: 24px;
+    z-index: 1000000;
+}
+
+/*Grid css*/
+
+.grid-command .dropdown-menu li {
+    padding: 3px 10px;
+}
+
+.grid-command .dropdown-menu li:not(.pop_arrow_new):hover {
+    background-color: #ddd;
+    cursor: pointer;
+}
+
+.gridrow .dropdown-menu li a {
+    color: #000;
+}
+.gridrow .dropdown-menu li a i {
+   font-weight:normal;
+}
+
+table thead th {
+    vertical-align: middle !important;
+    text-align: center;
+}
+
+
+table.table tbody tr:hover {
+    background-color: #eeeeee;
+}
+
+table tbody tr.active, table tbody tr.active:hover {
+    background-color: aquamarine;
+}
+
+.table-head-fixed th {
+    border-top-width: 0px !important;
+    padding-left:10px !important;
+}
+/*End - Grid css*/
+/*display icheck*/
+.custom-control {
+    padding-left: 1.5rem;
+}
+
+.custom-control-label::before {
+    left: -1.5rem;
+}
+
+.custom-control-label::after {
+    left: -1.5rem;
+}
+/*------------------------------------*/
+
+/* Select 2 CSS custom*/
+.select2.select2-container {
+    width: 100% !important;
+}
+
+.select2-container .select2-dropdown .select2-results .select2-results__options .select2-results__option {
+    /*padding: 10px;*/
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    user-select: none;
+    /*border-left: 3px solid #fff;*/
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.select2-container .select2-dropdown .select2-results .select2-results__options .select2-results__option .select-item-text {
+    display: block;
+}
+
+.select2-container .select2-dropdown .select2-results .select2-results__options .select2-results__option .select-item-desc {
+    color: #777;
+    font-size: .9em;
+}
+
+.select2-container .select2-dropdown .select2-results .select2-results__options .select2-results__option[aria-selected=true] {
+    background-color: #f3f3f3 !important;
+}
+
+.select2-container .select2-dropdown .select2-results .select2-results__options .select2-results__option.select2-results__option--highlighted {
+    background-color: #f3f3f3 !important;
+    color: #000 !important;
+    border-left: 3px solid #007bff !important;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+    padding-right: 15px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__rendered .select2-search.select2-search--inline .select2-search__field {
+    border: 0;
+    margin-top: 6px;
+}
+/**/
+
+/* Modal css*/
+.modal-dialog > form {
+    width: 100%
+}
+.modal-content .modal-header, .modal-content .modal-footer {
+    padding: 0.5rem 1rem
+}
+.modal-content .modal-header .close {
+    padding: 0.5rem 1rem;
+    margin: -0.5rem -1rem -0.5rem auto
+}
+.modal-content .modal-header .modal-title {
+    font-size: 1.3rem
+}
+/*------------------------------------*/
+
+/* jsTree*/
+.jstree-anchor {
+    white-space: normal !important;
+    height: auto !important;
+}
+/*------------------------------------*/
+
+/*custom ui*/
+.custom-file-label::after {
+    content: "Chọn tệp" !important;
+}
+/*------------------------------------*/

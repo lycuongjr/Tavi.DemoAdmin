@@ -1,0 +1,43 @@
+﻿@model IPagedList<Tavi.BoMayToChuc.Models.CoQuan>
+
+@using MvcContrib.UI.Grid;
+@using PagedList;
+@using PagedList.Mvc;
+@using Tavi.Core.HtmlEx;
+@using Tavi.BoMayToChuc.Membership;
+@using Tavi.Core.Constants;
+@Html.Hidden("Page")
+@{
+    var currentUser = HttpContext.Current.User.Identity.GetUserLogin();
+    var roles = currentUser.DsChucNang;
+}
+
+<div class="row">
+    @Html.Grid(Model).Columns(column =>
+{
+column.Custom(@<div class="dropdown grid-command">
+            <div class="sett" data-toggle="dropdown"></div>
+            <ul class="dropdown-menu sett_dropdown-caret">
+                <li class="pop_arrow_new"></li>
+                <li onclick="ThemMoi(@item.CoQuanId)"><span><i class="fas fa-edit"></i> Hiệu chỉnh</span></li>
+                @if (roles != null && roles.Any(m => m == Constants.Roles.NHOM_NGUOI_DUNG))
+                {
+                    <li onclick="window.open('@Url.Action("Index","NhomNguoiDung",new { id = item.CoQuanId})')"><span><i class="fas fa-users-cog"></i> Phân quyền nhóm</span></li>
+                }
+
+            </ul>
+        </div>).Named("<i class='far fa-hand-point-up'></i>").Attributes(style => "text-align:center");
+column.For(m => m.MaCoQuan).Named("Mã cơ quan").Attributes(style => "width:15%");
+column.For(m => m.TenCoQuan).Named("Tên cơ quan").Attributes(style => "width:20%");
+column.For(m => m.Email).Named("Email").Attributes(style => "width:15%");
+column.For(m => m.DienThoai).Named("Điện thoại").Attributes(style => "width:15%");
+column.For(m => m.DiaChi).Named("Địa chỉ").Attributes(style => "width:25%");
+column.For(m => Html.StatusDisplay(m.ConHoatDong)).Named("Trạng thái").Attributes(style => "width:10%; text-align:center");
+}).RenderUsing(new CustomHtmlTableGridRenderer<Tavi.BoMayToChuc.Models.CoQuan>(10)).Attributes(style => "width:100%").Attributes(@class => "table table-bordered").Empty("Chưa có dữ liệu")
+</div>
+<div class="row">
+    @Html.PagedListPager(Model, page => @Url.Action("Index", new { MaCoQuan = ViewBag.MaCoQuan, TenCoQuan = ViewBag.TenCoQuan, page = page }), PagedRenderOptionExtension.ClassicCustomPage)
+</div>
+<script>
+    $("#hdPage").val(@Model.PageNumber);
+</script>
